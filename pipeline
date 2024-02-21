@@ -14,5 +14,17 @@ pipeline {
             }
 
             }
+        stage ('test') {
+            steps {
+                echo "test by sonar"
+                withSonarQubeEnv(installationName: 'sonar' , credentialsId: 'sonar_token') {
+                    sh '''mvn sonar:sonar \\
+                    -Dsonar.projectKey=my-project \\
+                              
+
+                
+                }
+            }
+        }
     }
 }
