@@ -15,10 +15,10 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo "Testing with SonarQube"
-                withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar_token') {
-                    sh '''mvn sonar:sonar \\
-                    -Dsonar.projectKey=new-project \\ '''
+                echo "test is getting successfull by sonarqube"
+                withSonarQubeEnv(installationName: 'sonar' , credentialsId: 'sonar_token') {
+                sh 'mvn sonar:sonar -Dsonar.projectKey=studentapp'  
+
                     
                 }
             }
