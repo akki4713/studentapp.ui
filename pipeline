@@ -15,12 +15,13 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo "test is getting successfull by sonarqube"
-                withSonarQubeEnv(installationName: 'sonar' , credentialsId: 'sonar_token') {
-                sh 'mvn sonar:sonar -Dsonar.projectKey=studentapp'  
-
-                    
-                }
+                echo "Testing with SonarQube"
+                sh '''
+                mvn clean verify sonar:sonar \
+                -Dsonar.projectKey=my-project \
+                -Dsonar.projectName='my-project' \
+                -Dsonar.host.url=http://18.230.196.225:9000
+                '''
             }
         }
     }
