@@ -18,7 +18,7 @@ pipeline {
                 echo "Testing with SonarQube"
                 withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar_token') {
                     sh '''mvn sonar:sonar \\
-                    -Dsonar.projectKey=my-project \\ '''
+                    -Dsonar.projectKey=new-project \\ '''
                     
                 }
             }
