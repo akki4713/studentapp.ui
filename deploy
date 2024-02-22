@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'tomcat'
+    }
     stages {
         stage('Pull') {
             steps {
@@ -8,6 +10,9 @@ pipeline {
             }
         }
         stage('Build') {
+            agent {
+                label 'tomcat'
+            }
             steps {
                 echo "Building with Maven"
                 sh 'mvn clean package'
@@ -19,9 +24,9 @@ pipeline {
             }
             steps {
                 script {
-                    copyArtifacts(projectName: 'deploy', filter: '*', selector: specific('lastCompleted'), target: ' /opt/apache-tomcat-8.5.99/webapps/') //copy file
-                    }
+                    sh 'cp -r /var/lib/jenkins/workspace/deploy/target /opt/apache-tomcat-8.5.99/webapps/'
                 }
+            }
             
         }
     }
