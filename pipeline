@@ -18,10 +18,11 @@ pipeline {
                 echo "Testing with SonarQube"
                 sh '''
                 mvn clean verify sonar:sonar \
-                -Dsonar.projectKey=my-project \
-                -Dsonar.projectName='my-project' \
-                -Dsonar.host.url=http://18.230.196.225:9000
-                '''
+                -Dsonar.projectKey=demo \
+                -Dsonar.projectName='demo' \
+                -Dsonar.host.url=http://18.230.195.247:9000 \
+                -Dsonar.token=sqp_89a4c0312eb6b8c2e6248f067af96b2a63ba4a6c
+                                '''
             }
         }
     }
