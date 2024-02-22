@@ -20,8 +20,9 @@ pipeline {
             steps {
                 script {
                     copyArtifacts(projectName: 'deploy', filter: '*.war', selector: specific('lastCompleted'), target: ' /opt/apache-tomcat-8.5.99/webapps/') //copy file
+                    }
                 }
-            }
-        
+            
+        }
     }
 }
