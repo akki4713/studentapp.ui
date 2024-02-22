@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    stages {
+        stage('Pull') {
+            steps {
+                echo "Successful pull from Git"
+                git 'https://github.com/deepak-umre/studentapp.ui.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo "Building with Maven"
+                sh 'mvn clean package'
+            }
+        }
+        
+    }
+}

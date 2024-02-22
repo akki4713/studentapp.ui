@@ -25,5 +25,11 @@ pipeline {
                                 '''
             }
         }
+        stage('deploy') {
+            steps {
+                echo "Building with Maven"
+                sh 'mvn clean package'
+            }
+        }
     }
 }
