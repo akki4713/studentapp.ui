@@ -17,9 +17,10 @@ pipeline {
                 sh '''
                mvn clean verify sonar:sonar \
                 -Dsonar.projectKey=demo \
-                -Dsonar.host.url=http://16.16.144.44:9000 \
-                -Dsonar.login=sqp_68fd9b54625510f7fb41ffec064f25ddd683c6e4
-                '''
+                -Dsonar.host.url=http://3.27.193.71:9000 \
+                -Dsonar.login=sqp_595b0bec9f5afa55ebe2ab955df0fd9e17d3ffed                
+                
+                        '''
             }
          }
          stage('deploy') {
