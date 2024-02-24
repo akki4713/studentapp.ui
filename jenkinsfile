@@ -26,7 +26,7 @@ pipeline {
             steps {
                 echo "deploy on tomcat "
                 sh '''
-                cp -r /var/lib/jenkins/workspace/deploy/*.war /opt/apache-tomcat-8.5.99/webapps/
+                cp -r  /var/lib/jenkins/workspace/deploy/target/*.war /opt/apache-tomcat-8.5.99/webapps/
                 '''
             }
          }
