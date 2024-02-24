@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('git pull') { 
             steps {
-                git 'https://github.com/deepak-umre/studentapp.ui.git'
+                git 'https://github.com/akki4713/studentapp.ui.git'
             }
         }
         stage('mvn build') { 
